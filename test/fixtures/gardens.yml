@@ -3,9 +3,7 @@
 one:
   user_id: 1
   zone: MyString
-  notifications: MyString
 
 two:
   user_id: 1
   zone: MyString
-  notifications: MyString
