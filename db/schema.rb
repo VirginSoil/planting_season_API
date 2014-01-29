@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129005048) do
+ActiveRecord::Schema.define(version: 20140129181142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20140129005048) do
     t.boolean  "text_notifications"
     t.boolean  "email_notifications"
     t.boolean  "phone_notifications"
+  end
+
+  create_table "plantings", force: true do |t|
+    t.integer  "bed_id"
+    t.integer  "plant_id"
+    t.date     "planting_date"
+    t.date     "estimated_harvest_date"
+    t.boolean  "harvested"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
