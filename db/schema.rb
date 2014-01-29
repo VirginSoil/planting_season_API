@@ -11,17 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129002019) do
+ActiveRecord::Schema.define(version: 20140129005048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "beds", force: true do |t|
+    t.string   "name"
+    t.integer  "garden_id"
+    t.integer  "width"
+    t.integer  "depth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "gardens", force: true do |t|
     t.integer  "user_id"
     t.string   "zone"
-    t.string   "notifications"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "text_notifications"
+    t.boolean  "email_notifications"
+    t.boolean  "phone_notifications"
   end
 
 end
