@@ -5,13 +5,9 @@ class GardenTest < ActiveSupport::TestCase
     assert Garden.new
   end
 
-  test "it is created with valid params" do
-    garden = Garden.new(user_id: 1,
-                        zone: "5",
-                        email_notifications: true,
-                        text_notifications: true,
-                        phone_notifications: false)
-    assert garden.save
+  test "it validates presence of user id" do
+    garden = Garden.new
+    assert garden.invalid?
   end
 end
 

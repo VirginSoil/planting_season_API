@@ -67,6 +67,11 @@ GEM
     ethon (0.6.2)
       ffi (>= 1.3.0)
       mime-types (~> 1.18)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
@@ -179,6 +184,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.8)
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -209,6 +215,7 @@ PLATFORMS
 
 DEPENDENCIES
   database_cleaner
+  factory_girl_rails (~> 4.0)
   guard
   guard-minitest
   jazz_hands!
@@ -218,4 +225,5 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.2)
   rails-api
+  sqlite3
   travis

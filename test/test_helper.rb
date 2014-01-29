@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'database_cleaner'
 require 'minitest/pride'
 
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   include Rails.application.routes.url_helpers

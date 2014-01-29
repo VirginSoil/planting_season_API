@@ -9,6 +9,7 @@ group :development do
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'pry-byebug'
   gem 'quiet_assets'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -16,4 +17,5 @@ group :test do
   gem 'database_cleaner'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'factory_girl_rails', '~> 4.0'
 end
