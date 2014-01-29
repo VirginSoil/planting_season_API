@@ -1,1 +1,3 @@
 This is the API for Planting Season. It exposes information about Gardens, Beds, and Plantings via a RESTful JSON API.
+
+URL: http://planting-season-api.herokuapp.com/
