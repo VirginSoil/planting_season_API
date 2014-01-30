@@ -19,4 +19,14 @@ FactoryGirl.define do
     zone "5a"
   end
 
+  factory :plant do
+    name "Basil"
+    depth 4
+    days_to_harvest "49"
+    age_of_transplant "3"
+    warm_season true
+    spacing "5-7"
+    germination_temperature "80"
+    days_to_germination "5"
+  end
 end
