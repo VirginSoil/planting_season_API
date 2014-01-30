@@ -14,4 +14,9 @@ FactoryGirl.define do
     harvested false
   end
 
+  factory :garden do
+    user_id 1
+    zone "5a"
+  end
+
 end

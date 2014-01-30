@@ -4,6 +4,11 @@ class Api::V1::BedsController < ApplicationController
     render json: beds
   end
 
+  def show
+    bed = Bed.find(params[:id])
+    render json: bed
+  end
+
   def create
     bed = Bed.new(bed_params)
     if bed.save
