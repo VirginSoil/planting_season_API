@@ -5,5 +5,6 @@ class Bed < ActiveRecord::Base
   validates :width, presence: true
 
   belongs_to :garden
+  has_many :plantings
 
 end

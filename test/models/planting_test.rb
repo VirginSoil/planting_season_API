@@ -22,5 +22,5 @@ class PlantingTest < ActiveSupport::TestCase
     planting.update_attributes(planting_date: Time.now)
     assert planting.valid?
   end
-  
+
 end
