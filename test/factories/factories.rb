@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :plant do
     name "Basil"
-    depth 4
+    depth "4"
     days_to_harvest "49"
     age_of_transplant "3"
     warm_season true

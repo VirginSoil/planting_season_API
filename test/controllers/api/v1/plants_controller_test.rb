@@ -21,7 +21,7 @@ class Api::V1::PlantsControllerTest < ActionController::TestCase
     before = Plant.count
     post :create, plant: {
       :name => "Purple Basil",
-      :depth => 4,
+      :depth => "4",
       :days_to_harvest => "49",
       :age_of_transplant => "3",
       :warm_season => true,
