@@ -4,6 +4,7 @@ FactoryGirl.define do
     garden_id 1
     width 10
     depth 10
+    notes "Plant cover crop after harvest."
   end
 
   factory :planting do
