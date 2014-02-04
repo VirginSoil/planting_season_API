@@ -13,6 +13,8 @@ FactoryGirl.define do
     planting_date Time.now
     estimated_harvest_date Time.now + 5
     harvested false
+    row "a"
+    column "1"
   end
 
   factory :garden do

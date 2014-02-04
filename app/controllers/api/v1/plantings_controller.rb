@@ -7,15 +7,16 @@ class Api::V1::PlantingsController < ApplicationController
 
   def show
     planting = Planting.find(params[:id])
-    render json: planting 
+    render json: planting
   end
 
   def create
-    planting = Planting.new(planting_params)
+    attributes = planting_params.merge(:planting_date => 0.second.ago)
+    planting = Planting.new(attributes)
     if planting.save
       render json: planting
     else
-      400
+      render :json => { :errors => planting.errors.full_messages }, :status => 422
     end
   end
 
@@ -34,6 +35,14 @@ class Api::V1::PlantingsController < ApplicationController
   private
 
   def planting_params
-    params.require(:planting).permit(:bed_id, :plant_id, :planting_date, :estimated_harvest_date, :harvested)
+    params.require(:planting).permit(
+      :bed_id,
+      :plant_id,
+      :planting_date,
+      :estimated_harvest_date,
+      :harvested,
+      :row,
+      :column
+    )
   end
 end
