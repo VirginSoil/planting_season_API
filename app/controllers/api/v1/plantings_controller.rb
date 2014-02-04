@@ -11,12 +11,12 @@ class Api::V1::PlantingsController < ApplicationController
   end
 
   def create
-    #binding.pry
-    planting = Planting.new(planting_params)
+    attributes = planting_params.merge(:planting_date => 0.second.ago)
+    planting = Planting.new(attributes)
     if planting.save
       render json: planting
     else
-      400
+      render :json => { :errors => planting.errors.full_messages }, :status => 422
     end
   end
 
