@@ -11,6 +11,7 @@ class Api::V1::PlantingsController < ApplicationController
   end
 
   def create
+    #binding.pry
     planting = Planting.new(planting_params)
     if planting.save
       render json: planting
@@ -40,8 +41,8 @@ class Api::V1::PlantingsController < ApplicationController
       :planting_date,
       :estimated_harvest_date,
       :harvested,
-      :x,
-      :y
+      :row,
+      :column
     )
   end
 end

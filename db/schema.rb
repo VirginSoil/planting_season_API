@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204150508) do
+ActiveRecord::Schema.define(version: 20140204153907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20140204150508) do
     t.boolean  "harvested"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "x"
-    t.string   "y"
+    t.string   "row"
+    t.string   "column"
   end
 
   create_table "plants", force: true do |t|
