@@ -7,7 +7,7 @@ class Api::V1::PlantingsController < ApplicationController
 
   def show
     planting = Planting.find(params[:id])
-    render json: planting 
+    render json: planting
   end
 
   def create
@@ -34,6 +34,14 @@ class Api::V1::PlantingsController < ApplicationController
   private
 
   def planting_params
-    params.require(:planting).permit(:bed_id, :plant_id, :planting_date, :estimated_harvest_date, :harvested)
+    params.require(:planting).permit(
+      :bed_id,
+      :plant_id,
+      :planting_date,
+      :estimated_harvest_date,
+      :harvested,
+      :x,
+      :y
+    )
   end
 end

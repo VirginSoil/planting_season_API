@@ -19,9 +19,9 @@ class Api::V1::PlantingsControllerTest < ActionController::TestCase
 
   test "should create a planting" do
     before = Planting.count
-    post :create, planting: {bed_id: 1, plant_id: 1, planting_date: Time.now, estimated_harvest_date: Time.now + 5, harvested: false}
+    post :create, planting: {bed_id: 1, plant_id: 1, planting_date: Time.now, estimated_harvest_date: Time.now + 5, harvested: false, x: 1, y: 1}
     after = Planting.count
-    assert_equal after, before + 1
+    assert_equal before + 1, after
 
     assert_response :success
     result = JSON.parse(response.body)

@@ -23,4 +23,18 @@ class PlantingTest < ActiveSupport::TestCase
     assert planting.valid?
   end
 
+  test "it validates the presence of an x coordinate" do
+    planting = FactoryGirl.build(:planting, x: nil)
+    assert planting.invalid?, "planting is valid without an x"
+    planting.x = "1"
+    assert planting.valid?
+  end
+
+  test "it validates the presence of a y coordinate" do
+    planting = FactoryGirl.build(:planting, y: nil)
+    assert planting.invalid?, "planting is valid without an y"
+    planting.y = "1"
+    assert planting.valid?
+  end
+
 end
