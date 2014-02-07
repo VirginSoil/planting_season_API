@@ -19,7 +19,7 @@ class Api::V1::PlantingsControllerTest < ActionController::TestCase
 
   test "should create a planting" do
     before = Planting.count
-    post :create, planting: {bed_id: 1, plant_id: 1, planting_date: Time.now, estimated_harvest_date: Time.now + 5, harvested: false, row: "a", column: "1"}
+    post :create, planting: {bed_id: 1, plant_id: 1, planting_date: Time.now, estimated_harvest_date: Time.now + 5, harvested: false, x_coord: 1, y_coord: 3}
     after = Planting.count
     assert_equal before + 1, after
 

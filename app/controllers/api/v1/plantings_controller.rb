@@ -46,8 +46,8 @@ class Api::V1::PlantingsController < ApplicationController
       :planting_date,
       :estimated_harvest_date,
       :harvested,
-      :row,
-      :column
+      :x_coord,
+      :y_coord
     )
   end
 end
