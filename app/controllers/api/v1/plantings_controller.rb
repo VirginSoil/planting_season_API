@@ -20,6 +20,11 @@ class Api::V1::PlantingsController < ApplicationController
     end
   end
 
+  def for_bed
+    plantings = Planting.where(:bed_id => params[:id])
+    render json: plantings
+  end
+
   def update
     planting = Planting.find(params[:id])
     planting.update_attributes(planting_params) if planting

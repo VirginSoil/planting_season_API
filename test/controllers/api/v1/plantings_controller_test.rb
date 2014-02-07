@@ -45,4 +45,13 @@ class Api::V1::PlantingsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "it gets the plantings for a bed" do
+    planting = FactoryGirl.create(:planting)
+    planting2 = FactoryGirl.create(:planting, :y_coord => 4)
+    get :for_bed, id: 1
+    result = JSON.parse(response.body)
+    assert_equal planting.id, result.first["id"]
+    assert_equal planting2.id, result[1]["id"]
+  end
+
 end

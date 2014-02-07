@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 20140204153907) do
     t.boolean  "harvested"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "row"
-    t.string   "column"
+    t.integer  "x_coord"
+    t.integer  "y_coord"
   end
 
   create_table "plants", force: true do |t|
