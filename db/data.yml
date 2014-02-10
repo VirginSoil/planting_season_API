@@ -4,7 +4,7 @@ beds:
   columns:
   - id
   - name
-  - garden_id
+  - user_id
   - width
   - depth
   - created_at

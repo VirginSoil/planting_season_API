@@ -30,9 +30,14 @@ class Api::V1::BedsController < ApplicationController
     200
   end
 
+  def for_user
+    beds = Bed.where(:user_id => params[:id])
+    render json: beds.to_a
+  end
+
   private
 
   def bed_params
-    params.require(:bed).permit(:id, :name, :width, :depth, :garden_id)
+    params.require(:bed).permit(:id, :name, :width, :depth, :zipcode, :notes, :user_id)
   end
 end

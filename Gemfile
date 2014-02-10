@@ -14,7 +14,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
+  gem 'yaml_db', github: 'jetthoughts/yaml_db', ref: 'fb4b6bd7e12de3cffa93e0a298a1e5253d7e92ba'
 end
 
 group :test do
