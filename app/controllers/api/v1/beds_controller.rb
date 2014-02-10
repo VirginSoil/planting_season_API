@@ -12,7 +12,8 @@ class Api::V1::BedsController < ApplicationController
   def create
     bed = Bed.new(bed_params)
     if bed.save
-      render json: bed
+
+      render json: bed, status: 201
     else
       400
     end
