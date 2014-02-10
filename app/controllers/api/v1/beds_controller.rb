@@ -36,6 +36,11 @@ class Api::V1::BedsController < ApplicationController
     render json: beds.to_a
   end
 
+  def default_for_user
+    bed = Bed.where(:user_id => params[:id]).last
+    render json: bed
+  end
+
   private
 
   def bed_params
