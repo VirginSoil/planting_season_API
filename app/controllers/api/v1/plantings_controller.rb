@@ -23,7 +23,7 @@ class Api::V1::PlantingsController < ApplicationController
     attributes = planting_params.merge(:planting_date => 0.second.ago)
     planting = Planting.new(attributes)
     plant = Plant.find_by(slug: params["planting"]["plant_id"].downcase)
-    planting.update_attributes(plant_id: plant.id)
+    planting.update_attributes(plant_id: plant.id, slug: plant.slug)
 
     if planting.save
       render json: planting
