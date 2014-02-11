@@ -10,9 +10,16 @@ class Api::V1::PlantingsController < ApplicationController
     render json: planting
   end
 
+  def by_coordinates
+    planting = Planting.find_by(planting_params)
+    render json: planting
+  end
+
   def create
     attributes = planting_params.merge(:planting_date => 0.second.ago)
     planting = Planting.new(attributes)
+    plant = Plant.find_by()
+    planting.update_attributes()
     if planting.save
       render json: planting
     else
