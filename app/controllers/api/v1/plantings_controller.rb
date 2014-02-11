@@ -35,6 +35,7 @@ class Api::V1::PlantingsController < ApplicationController
 
   def update
     planting = Planting.find(params[:id])
+    raise planting
     planting.update_attributes(planting_params) if planting
     render json: planting
   end
