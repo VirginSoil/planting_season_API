@@ -5,7 +5,8 @@ PlantingSeasonApi::Application.routes.draw do
       get '/beds/for_user/:id', to: 'beds#for_user', as: "for_user_path"
       get '/beds/default_for_user/:id', to: 'beds#default_for_user', as: "default_for_user_path"
       resources :beds
-      resources :plantings
+      delete '/plantings/', to: 'plantings#destroy', as: 'destroy_planting_path'
+      resources :plantings, except: [:destroy]
       resources :plants
       resources :gardens
     end

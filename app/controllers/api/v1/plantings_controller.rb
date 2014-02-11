@@ -32,9 +32,9 @@ class Api::V1::PlantingsController < ApplicationController
   end
 
   def destroy
-    planting = Planting.find(params[:id])
+    planting = Planting.find_by(planting_params)
     planting.destroy if planting
-    200
+    render :json => { :body => 'success!' }, :status => 200
   end
 
   private
