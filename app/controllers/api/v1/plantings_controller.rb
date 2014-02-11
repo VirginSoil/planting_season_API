@@ -16,6 +16,10 @@ class Api::V1::PlantingsController < ApplicationController
   end
 
   def create
+    if found_planting
+      render :json => "You can't plant that much in me gurl!", :status => 422 
+      return
+    end
     attributes = planting_params.merge(:planting_date => 0.second.ago)
     planting = Planting.new(attributes)
     plant = Plant.find_by(slug: params["planting"]["plant_id"].downcase)
@@ -58,5 +62,12 @@ class Api::V1::PlantingsController < ApplicationController
       :x_coord,
       :y_coord
     )
+  end
+
+  def found_planting
+     Planting.find_by(
+      :bed_id => params[:planting][:bed_id], 
+      :x_coord => params[:planting][:x_coord], 
+      :y_coord => params[:planting][:y_coord])
   end
 end
