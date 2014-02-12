@@ -24,3 +24,8 @@ group :test do
   gem 'guard-minitest'
   gem 'factory_girl_rails', '~> 4.0'
 end
+
+group :production do
+  gem 'execjs'
+  gem 'therubyracer'
+end
