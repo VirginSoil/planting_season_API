@@ -15,3 +15,6 @@ production:
   database: planting_season_api_production
   pool: 5
   timeout: 5000
+  host: localhost
+  username: plantingseason
+  password: 'weema'
