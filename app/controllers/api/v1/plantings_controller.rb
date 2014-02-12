@@ -15,6 +15,16 @@ class Api::V1::PlantingsController < ApplicationController
     render json: planting
   end
 
+  def update_by_coordinates
+    planting = found_planting
+    if planting.harvested
+      planting.update_attributes(harvested: false)
+    else
+      planting.update_attributes(harvested: true)
+    end
+    render json: planting
+  end
+
   def create
     if found_planting
       render :json => "You can't plant that much in me gurl!", :status => 422
@@ -39,10 +49,10 @@ class Api::V1::PlantingsController < ApplicationController
 
   def update
     planting = Planting.find(params[:id])
-    raise planting
     planting.update_attributes(planting_params) if planting
     render json: planting
   end
+
 
   def destroy
     planting = Planting.find_by(planting_params)

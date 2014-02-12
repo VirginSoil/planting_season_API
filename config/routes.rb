@@ -7,6 +7,7 @@ PlantingSeasonApi::Application.routes.draw do
       resources :beds
 
       get '/plantings/by_coordinates/', to: 'plantings#by_coordinates', as: 'coordinates_planting_path'
+      put '/plantings/by_coordinates/', to: 'plantings#update_by_coordinates', as: 'update_coordinates_planting_path'
       delete '/plantings/', to: 'plantings#destroy', as: 'destroy_planting_path'
       resources :plantings, except: [:destroy]
       resources :plants
