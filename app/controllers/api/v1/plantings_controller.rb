@@ -17,28 +17,25 @@ class Api::V1::PlantingsController < ApplicationController
 
   def update_by_coordinates
     planting = found_planting
-    if planting.harvested
-      planting.update_attributes(harvested: false)
-    else
-      planting.update_attributes(harvested: true)
-    end
+    planting.update_attributes(harvested: !planting.harvested) # toggle
     render json: planting
   end
 
   def create
     if found_planting
-      render :json => "You can't plant that much in me gurl!", :status => 422
+      render :json => "You can't plant that much in me gurl!", :status => 409
       return
     end
-    attributes = planting_params.merge(:planting_date => 0.second.ago)
+    attributes = planting_params.merge(:planting_date => Date.today)
+    # *_at => time
+    # *_on => date
     planting = Planting.new(attributes)
     plant = Plant.find_by(slug: params["planting"]["plant_id"].parameterize)
-    planting.update_attributes(plant_id: plant.id, slug: plant.slug)
 
-    if planting.save
+    if planting.update_attributes(plant_id: plant.id, slug: plant.slug)
       render json: planting
     else
-      render :json => { :errors => planting.errors.full_messages }, :status => 422
+      render :json => { :errors => planting.errors.full_messages }, :status => 409
     end
   end
 
@@ -53,11 +50,10 @@ class Api::V1::PlantingsController < ApplicationController
     render json: planting
   end
 
-
   def destroy
     planting = Planting.find_by(planting_params)
     planting.destroy if planting
-    render :json => { :body => 'success!' }, :status => 200
+    render :nothing => true, :status => 204
   end
 
   private
